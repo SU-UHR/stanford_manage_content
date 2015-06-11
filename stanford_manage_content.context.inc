@@ -32,6 +32,12 @@ function stanford_manage_content_context_default_contexts() {
           'region' => 'sidebar_second',
           'weight' => '-10',
         ),
+        'menu_block-14' => array(
+          'module' => 'menu_block',
+          'delta' => '14',
+          'region' => 'sidebar_second',
+          'weight' => '-9',
+        ),
       ),
     ),
   );

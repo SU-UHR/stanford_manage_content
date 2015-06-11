@@ -69,6 +69,17 @@ function stanford_manage_content_views_default_views() {
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $translatables['stanford_manage_all_content_link'] = array(
+    t('Master'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Back to Manage All Content'),
+    t('Block'),
+  );
   $export['stanford_manage_all_content_link'] = $view;
 
   $view = new view();
@@ -286,13 +297,15 @@ function stanford_manage_content_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'vpsa_landing_page' => 'vpsa_landing_page',
-    'stanford_news_item' => 'stanford_news_item',
+    'caw_course' => 'caw_course',
     'stanford_event' => 'stanford_event',
-    'stanford_event_importer' => 'stanford_event_importer',
+    'faq' => 'faq',
+    'stanford_news_item' => 'stanford_news_item',
     'stanford_page' => 'stanford_page',
+    'stanford_resource' => 'stanford_resource',
+    'stanford_event_importer' => 'stanford_event_importer',
     'stanford_slide' => 'stanford_slide',
-    'stanford_video' => 'stanford_video',
+    'stanford_sweetener' => 'stanford_sweetener',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
   $handler->display->display_options['filters']['type']['exposed'] = TRUE;
@@ -303,14 +316,13 @@ function stanford_manage_content_views_default_views() {
   $handler->display->display_options['filters']['type']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
-    13 => 0,
     11 => 0,
     9 => 0,
     7 => 0,
     5 => 0,
-    15 => 0,
     17 => 0,
-    19 => 0,
+    13 => 0,
+    15 => 0,
   );
   $handler->display->display_options['filters']['type']['expose']['reduce'] = TRUE;
   $handler->display->display_options['filters']['type']['group_info']['label'] = 'Type';
@@ -326,6 +338,27 @@ function stanford_manage_content_views_default_views() {
         'page' => 0,
       ),
     ),
+  );
+  /* Filter criterion: Content: Content Status (field_s_content_status) */
+  $handler->display->display_options['filters']['field_s_content_status_value']['id'] = 'field_s_content_status_value';
+  $handler->display->display_options['filters']['field_s_content_status_value']['table'] = 'field_data_field_s_content_status';
+  $handler->display->display_options['filters']['field_s_content_status_value']['field'] = 'field_s_content_status_value';
+  $handler->display->display_options['filters']['field_s_content_status_value']['group'] = 1;
+  $handler->display->display_options['filters']['field_s_content_status_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_s_content_status_value']['expose']['operator_id'] = 'field_s_content_status_value_op';
+  $handler->display->display_options['filters']['field_s_content_status_value']['expose']['label'] = 'Content Status';
+  $handler->display->display_options['filters']['field_s_content_status_value']['expose']['operator'] = 'field_s_content_status_value_op';
+  $handler->display->display_options['filters']['field_s_content_status_value']['expose']['identifier'] = 'field_s_content_status_value';
+  $handler->display->display_options['filters']['field_s_content_status_value']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    11 => 0,
+    9 => 0,
+    7 => 0,
+    5 => 0,
+    17 => 0,
+    13 => 0,
+    15 => 0,
   );
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
@@ -356,6 +389,7 @@ function stanford_manage_content_views_default_views() {
   $handler->display->display_options['filters']['uid']['field'] = 'uid';
   $handler->display->display_options['filters']['uid']['relationship'] = 'uid';
   $handler->display->display_options['filters']['uid']['value'] = '';
+  $handler->display->display_options['filters']['uid']['group'] = 1;
   $handler->display->display_options['filters']['uid']['exposed'] = TRUE;
   $handler->display->display_options['filters']['uid']['expose']['operator_id'] = 'uid_op';
   $handler->display->display_options['filters']['uid']['expose']['label'] = 'Author';
@@ -391,6 +425,38 @@ function stanford_manage_content_views_default_views() {
   /* Display: All Content Block */
   $handler = $view->new_display('block', 'All Content Block', 'block_all_content');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $translatables['stanford_manage_content'] = array(
+    t('Master'),
+    t('Manage All Content'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('author'),
+    t('Title'),
+    t('Type'),
+    t('Has new content'),
+    t('Published'),
+    t('Updated date'),
+    t('Author'),
+    t('Actions'),
+    t('view'),
+    t('All'),
+    t('Filter by Title'),
+    t('Content Status'),
+    t('Default Block'),
+    t('All Content Page'),
+    t('All Content Block'),
+  );
   $export['stanford_manage_content'] = $view;
 
   return $export;
